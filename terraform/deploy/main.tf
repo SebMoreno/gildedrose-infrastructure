@@ -5,7 +5,7 @@ module "deploy_ec2" {
   ec2_tags        = { Name = "group2-ec2" }
   ami_id          = "ami-005de95e8ff495156"
   key_pair_name   = "group2-kp"
-  ec2_volume_size = 10
+  ec2_volume_size = 15
   user_data       = file("../infra/user_data.sh")
 
   eip_tags = { Name = "group2-eip" }
