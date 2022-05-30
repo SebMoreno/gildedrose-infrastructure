@@ -2,7 +2,7 @@ import { Utils } from "../utils/utils";
 import { Item, Types } from "../interfaces/item";
 import { ItemsListPage } from "../page";
 
-const {itemsAreEquals} = Utils;
+const { itemsAreEquals } = Utils;
 
 describe("Adding items", () => {
   const item: Item = {
@@ -10,16 +10,14 @@ describe("Adding items", () => {
     name: "Carrot",
     sellIn: 30,
     quality: 30,
-    type: Types.NORMAL
+    type: Types.NORMAL,
   };
 
   before(() => {
     cy.request("GET", "/api/items").its("body")
-      .then((items: Item[]) =>
-        items
-          .filter(it => itemsAreEquals(it, item))
-          .forEach(it => cy.request("DELETE", `/api/items/${it.id}`))
-      );
+      .then((items: Item[]) => items
+        .filter((it) => itemsAreEquals(it, item))
+        .forEach((it) => cy.request("DELETE", `/api/items/${it.id}`)));
   });
 
   it("then a new item should be displayed", () => {

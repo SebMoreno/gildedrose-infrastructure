@@ -1,7 +1,8 @@
 import { Utils } from "../utils/utils";
-import {Item, Types} from "../interfaces/item";
-import {InsightsPage, ItemsListPage} from "../page";
-const {itemsAreEquals} = Utils;
+import { Item, Types } from "../interfaces/item";
+import { InsightsPage, ItemsListPage } from "../page";
+
+const { itemsAreEquals } = Utils;
 
 describe("Update the type of an item", () => {
   const prevItem: Item = {
@@ -9,21 +10,21 @@ describe("Update the type of an item", () => {
     name: "Chocolate",
     sellIn: 0,
     quality: 10,
-    type: Types.NORMAL
+    type: Types.NORMAL,
   };
   const newItem: Item = {
     id: 0,
     name: "Chocolate",
     sellIn: 0,
     quality: 10,
-    type: Types.AGED
+    type: Types.AGED,
   };
   before(() => {
     cy.request("/api/items").its("body").then((items: Item[]) => {
-      items.filter(it => itemsAreEquals(it, prevItem))
-        .forEach(it => cy.request("DELETE", `/api/items/${it.id}`));
-      items.filter(it => itemsAreEquals(it, newItem))
-        .forEach(it => cy.request("DELETE", `/api/items/${it.id}`));
+      items.filter((it) => itemsAreEquals(it, prevItem))
+        .forEach((it) => cy.request("DELETE", `/api/items/${it.id}`));
+      items.filter((it) => itemsAreEquals(it, newItem))
+        .forEach((it) => cy.request("DELETE", `/api/items/${it.id}`));
     });
     cy.request("POST", "/api/items", prevItem);
   });

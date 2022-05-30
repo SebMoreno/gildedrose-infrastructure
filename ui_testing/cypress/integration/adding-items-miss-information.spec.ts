@@ -1,5 +1,5 @@
-import {Item, Types} from "../interfaces/item";
-import {ItemsListPage} from "../page";
+import { Item, Types } from "../interfaces/item";
+import { ItemsListPage } from "../page";
 
 describe("Adding items with miss information", () => {
   const item: Item = {
@@ -7,7 +7,7 @@ describe("Adding items with miss information", () => {
     name: "Wine",
     sellIn: 30,
     quality: -3,
-    type: Types.AGED
+    type: Types.AGED,
   };
   const qualityErrorExpected = "Expected value between 0 and 80";
   const confirmButtonStateExpected = "be.disabled";
