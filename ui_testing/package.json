@@ -1,0 +1,16 @@
+{
+  "name": "ui_testing",
+  "version": "1.0.0",
+  "description": "UI testing for the gildedrose frontend app",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "keywords": [
+    "ui-testing",
+    "cypress",
+    "gildedrose"
+  ],
+  "author": "Sebastián Moreno <juansebasmorenoruiz@gmail.com> (https://github.com/SebMoreno)",
+  "license": "MIT"
+}

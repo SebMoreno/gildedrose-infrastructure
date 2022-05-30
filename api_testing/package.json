@@ -1,7 +1,7 @@
 {
-  "name": "workshop-api-testing",
+  "name": "api_testing",
   "version": "1.0.0",
-  "description": "\u0016This is a Workshop about Api Testing in JavaScript",
+  "description": "Api Testing in JavaScript for the gildedrose backend api",
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && mocha --recursive -t 5000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting",
@@ -9,8 +9,8 @@
   },
   "keywords": [
     "api-testing",
-    "dojo",
-    "practice"
+    "mocha",
+    "gildedrose"
   ],
   "author": "Sebastián Moreno <juansebasmorenoruiz@gmail.com> (https://github.com/SebMoreno)",
   "license": "MIT",
