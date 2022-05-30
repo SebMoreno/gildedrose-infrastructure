@@ -12,5 +12,16 @@ pipeline {
           sh 'npm ci'
        }
     }
+    stage("UI Testing") {
+       agent {
+            docker {
+                reuseNode true
+                image 'node:alpine'
+            }
+       }
+       steps {
+          sh 'npm test'
+       }
+    }
   }
 }
