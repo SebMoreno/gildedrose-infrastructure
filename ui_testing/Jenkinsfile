@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+  stages{
+    stage("Install dependencies") {
+       agent {
+            docker {
+                reuseNode true
+                image 'node:alpine'
+            }
+       }
+       steps {
+          sh 'npm ci'
+       }
+    }
+  }
+}
