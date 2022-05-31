@@ -1,27 +1,26 @@
 pipeline {
-  agent any
-  stages{
-    stage("Install dependencies") {
-       agent {
-            docker {
-                reuseNode true
-                image 'node:alpine'
+    agent any
+    stages {
+        stage("Set Working Directory") {
+            agent {
+                docker {
+                    reuseNode true
+                    image 'node:alpine'
+                }
             }
-       }
-       steps {
-          sh 'npm ci'
-       }
-    }
-    stage("UI Testing") {
-       agent {
-            docker {
-                reuseNode true
-                image 'node:alpine'
+            steps {
+                sh 'cd ui_testing'
             }
-       }
-       steps {
-          sh 'npm test'
-       }
+        }
+        stage("Install dependencies") {
+            steps {
+                sh 'npm ci'
+            }
+        }
+        stage("UI Testing") {
+            steps {
+                sh 'npm test'
+            }
+        }
     }
-  }
 }
