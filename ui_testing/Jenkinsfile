@@ -6,6 +6,7 @@ pipeline {
     stage('build and test') {
       steps {
         dir('ui_testing') {
+          sh 'ls ~'
           sh 'npm ci'
           sh 'npm test'
         }
