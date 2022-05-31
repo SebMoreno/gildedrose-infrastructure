@@ -13,7 +13,6 @@ pipeline {
                 node -v
                 npm -v
                 cd ui_testing
-                chown -R 111:115 "/.npm"
                 npm ci
                 '''
             }
