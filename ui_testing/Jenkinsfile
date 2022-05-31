@@ -5,8 +5,10 @@ pipeline {
   stages {
     stage('build and test') {
       steps {
-        sh 'npm ci'
-        sh "npm test"
+        dir('ui_testing') {
+          sh 'npm ci'
+          sh 'npm test'
+        }
       }
     }
   }
