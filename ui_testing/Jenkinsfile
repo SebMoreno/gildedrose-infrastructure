@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools { nodejs 'node' }
-    enviroment {
+    environment {
         CYPRESS_BASE_URL = 'http://3.232.104.87'
     }
     stages {
