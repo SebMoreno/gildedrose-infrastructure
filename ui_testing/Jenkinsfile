@@ -9,12 +9,7 @@ pipeline {
                 }
             }
             steps {
-                sh '''
-                node -v
-                npm -v
-                cd ui_testing
-                npm ci
-                '''
+                sh 'cd ui_testing'
             }
         }
         stage("Install dependencies") {
