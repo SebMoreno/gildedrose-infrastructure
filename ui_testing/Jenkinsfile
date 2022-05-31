@@ -1,20 +1,15 @@
 pipeline {
-    agent any
-    tools { nodejs 'node' }
-    stages {
-        stage('Install dependencies') {
-            steps {
-                dir('ui_testing') {
-                    sh 'npm ci'
-                }
-            }
+  agent {
+    docker { image 'cypress/base:10' }
+  }
+  stages {
+    stage('build and test') {
+      dir('ui_testing') {
+        steps {
+          sh 'npm ci'
+          sh 'npm test'
         }
-        stage('UI Testing') {
-            steps {
-                dir('ui_testing') {
-                    sh 'npm test'
-                }
-            }
-        }
+      }
     }
+  }
 }
