@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker {
                     reuseNode true
-                    image 'node:10.20.1-alpine3.11'
+                    image 'node:18-alpine3.15'
                 }
             }
             steps {
@@ -15,6 +15,7 @@ pipeline {
                 npm -v
                 cd ui_testing
                 ls
+                npm ci
                 '''
             }
         }
