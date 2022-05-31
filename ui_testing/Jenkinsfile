@@ -14,6 +14,7 @@ pipeline {
                 ls
                 npm -v
                 cd ui_testing
+                ls
                 '''
             }
         }
