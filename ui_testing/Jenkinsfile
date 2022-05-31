@@ -2,18 +2,15 @@ pipeline {
     agent any
     tools { nodejs 'node' }
     stages {
-        stage('Set Working Directory') {
-            steps {
-                sh 'ls && cd ui_testing'
-            }
-        }
         stage('Install dependencies') {
             steps {
-                sh '''
-                ls
-                npm -v
-                npm ci
-                '''
+                dir('ui_testing') {
+                    sh '''
+                    ls
+                    npm -v
+                    npm ci
+                    '''
+                }
             }
         }
         stage('UI Testing') {
