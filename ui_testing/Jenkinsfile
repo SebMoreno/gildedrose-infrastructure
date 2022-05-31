@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker {
                     reuseNode true
-                    image 'node'
+                    image 'node:10.20.1-alpine3.11'
                 }
             }
             steps {
