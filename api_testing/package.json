@@ -4,8 +4,7 @@
   "description": "Api Testing in JavaScript for the gildedrose backend api",
   "main": "index.js",
   "scripts": {
-    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/report.json",
-    "generate-report": "marge cypress/reports/report.json -f report -o cypress/reports",
+    "pretest": "rm -rf report",
     "test": "npm run lint && mocha --recursive -t 5000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting",
     "lint": "eslint ./test/**/*.js",
     "lint:fix": "npm run lint -- --fix"
