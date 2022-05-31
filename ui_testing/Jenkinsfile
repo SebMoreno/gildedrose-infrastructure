@@ -4,7 +4,7 @@ pipeline {
         stage("Set Working Directory") {
             agent {
                 docker {
-                    image 'node:16.15.0'
+                    image 'node:alpine'
                     reuseNode true
                 }
             }
@@ -13,7 +13,7 @@ pipeline {
                 node -v
                 npm -v
                 cd ui_testing
-                npm i
+                npm ci
                 '''
             }
         }
