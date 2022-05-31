@@ -1,23 +1,18 @@
 pipeline {
     agent any
+    tools { nodejs 'node' }
     stages {
-        stage("Set Working Directory") {
-            agent {
-                docker {
-                    image 'node:16.15-alpine'
-                    reuseNode true
-                }
-            }
+        stage('Set Working Directory') {
             steps {
                 sh 'cd ui_testing'
             }
         }
-        stage("Install dependencies") {
+        stage('Install dependencies') {
             steps {
                 sh 'npm ci'
             }
         }
-        stage("UI Testing") {
+        stage('UI Testing') {
             steps {
                 sh 'npm test'
             }
