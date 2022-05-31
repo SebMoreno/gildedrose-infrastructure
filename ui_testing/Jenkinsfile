@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools { nodejs 'node' }
     environment {
-        CYPRESS_BASE_URL = '$FRONTEND_URL'
+        CYPRESS_BASE_URL = '${FRONTEND_URL}'
     }
     stages {
         stage('Install dependencies') {
