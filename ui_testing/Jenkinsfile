@@ -4,8 +4,8 @@ pipeline {
         stage("Set Working Directory") {
             agent {
                 docker {
-                    reuseNode true
                     image 'node:14.19.3-alpine3.15'
+                    reuseNode true
                 }
             }
             steps {
