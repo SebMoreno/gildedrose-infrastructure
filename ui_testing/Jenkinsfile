@@ -4,12 +4,16 @@ pipeline {
     stages {
         stage('Set Working Directory') {
             steps {
-                sh 'cd ui_testing'
+                sh 'ls && cd ui_testing'
             }
         }
         stage('Install dependencies') {
             steps {
-                sh 'npm ci'
+                sh '''
+                ls
+                npm -v
+                npm ci
+                '''
             }
         }
         stage('UI Testing') {
