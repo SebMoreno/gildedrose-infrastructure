@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    tools { nodejs 'node' }
+    stages {
+        stage('Install dependencies') {
+            steps {
+                dir('api_testing') {
+                    sh 'npm ci'
+                }
+            }
+        }
+        stage('API Testing') {
+            steps {
+                dir('api_testing') {
+                    sh 'PRAXIS_API_URL=$API_URL npm test'
+                }
+            }
+        }
+        stage('Publish report') {
+            steps {
+                publishHTML (
+                    target : [
+                        alwaysLinkToLastBuild: true,
+                        reportDir: 'api_testing/report',
+                        reportFiles: 'ApiTesting.html',
+                        reportName: 'API Test Report'
+                    ]
+                )
+            }
+        }
+    }
+}
