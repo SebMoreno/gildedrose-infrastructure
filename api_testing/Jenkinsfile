@@ -21,6 +21,8 @@ pipeline {
                 publishHTML (
                     target : [
                         alwaysLinkToLastBuild: true,
+                        allowMissing: false,
+                        keepAll: true,
                         reportDir: 'api_testing/report',
                         reportFiles: 'ApiTesting.html',
                         reportName: 'API Test Report'
