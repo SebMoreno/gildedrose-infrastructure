@@ -1,5 +1,5 @@
 output "public_ip_jenkins" {
-  description = "public ip address of jenkins server"
+  description = "public ip address of jenkins server ec2 (running on port 8080)"
   value       = aws_eip.eip_jenkis_server.public_ip
 }
 

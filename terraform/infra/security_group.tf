@@ -5,6 +5,14 @@ resource "aws_security_group" "jenkins_server_ec2_sg" {
   vpc_id      = var.vpc_id
 
   ingress {
+    description = "ssh"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "TCP"
+    cidr_blocks = [var.allowed_cidr_for_ec2_sg]
+  }
+
+  ingress {
     description = "frontend"
     from_port   = 80
     to_port     = 80
@@ -21,19 +29,11 @@ resource "aws_security_group" "jenkins_server_ec2_sg" {
   }
 
   ingress {
-    description = "ssh"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "TCP"
-    cidr_blocks = [var.allowed_cidr_for_ec2_sg]
-  }
-
-  ingress {
     description = "backend_api"
     from_port   = 9090
     to_port     = 9090
     protocol    = "TCP"
-    cidr_blocks = [var.allowed_cidr_for_ec2_sg]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
