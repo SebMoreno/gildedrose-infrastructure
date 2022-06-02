@@ -20,7 +20,7 @@ module "deploy_ec2" {
   rds_sg_name             = "group2-rds-sg"
   rds_sg_description      = "Allow ec2 instance traffic"
   rds_sg_tags             = { Name = "group2-rds-sg" }
-  allowed_cidr_for_ec2_sg = "0.0.0.0/0" // replace with you own ip
+  allowed_cidr_for_ec2_sg = "<id>/32" // replace with you own ip
 
   rds_subnet_group_name = "group2-db-subnet-group"
   rds_subnet_id_1       = "subnet-04e972f3a706c00e8"
@@ -33,7 +33,7 @@ module "deploy_ec2" {
   rds_name                = "postgres"
   rds_username            = "postgres"
   rds_password            = "secret-group2"
-  rds_allocated_storage   = 10
+  rds_allocated_storage   = 5
   rds_skip_final_snapshot = true
   rds_tags                = { Name = "group2-rds" }
 }
