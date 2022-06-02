@@ -12,7 +12,7 @@ pipeline {
         stage('UI Testing') {
             steps {
                 dir('ui_testing') {
-                    sh 'CYPRESS_BASE_URL=$FRONTEND_URL npm test'
+                    sh 'CYPRESS_BASE_URL=$FRONTEND_URL NO_COLOR=1 npm test'
                 }
             }
         }
