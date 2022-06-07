@@ -31,8 +31,8 @@ module "deploy_ec2" {
   rds_engine              = "postgres"
   rds_instance_class      = "db.t3.micro"
   rds_name                = "postgres"
-  rds_username            = "postgres"
-  rds_password            = "secret-group2"
+  rds_username            = var.rds_username
+  rds_password            = var.rds_password
   rds_allocated_storage   = 5
   rds_skip_final_snapshot = true
   rds_tags                = { Name = "group2-rds" }
