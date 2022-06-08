@@ -1,9 +1,11 @@
 # Gildedrose Infrastructure
 
-This applications is intended to be deployed to an aws account via terraform.
+This applications is intended to be deployed to an aws account via terraform IaC, so the first step is to install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and the [Terraform CLI](https://www.terraform.io/downloads) configure your aws credentials.
 ```
 aws configure
 ```
+
+To deploy the aws infrastructure you must run this commands. Before applying the terminal will ask you for the rds username and password interactively, but if you want to pass it
 
 ```
 cd terraform/deploy/
